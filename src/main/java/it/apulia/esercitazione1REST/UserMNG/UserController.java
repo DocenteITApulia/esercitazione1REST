@@ -1,5 +1,6 @@
-package it.apulia.esercitazione1REST;
+package it.apulia.esercitazione1REST.UserMNG;
 
+import it.apulia.esercitazione1REST.AccessManager.LoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -7,19 +8,18 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
-import java.net.http.HttpResponse;
 import java.util.Date;
 import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "gestoreutenti")
-public class HomeController {
+@RequestMapping(path = "usermng")
+public class UserController {
 	
 	private final UserService userService;
 	
 	@Autowired
-    public HomeController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -29,11 +29,6 @@ public class HomeController {
 	    return new Date();
 	  }
 
-	@PostMapping("/login")
-	public boolean loginPost(
-			@RequestBody LoginDTO formLogin) {
-		return this.userService.verifyPasswordUtente(formLogin);
-	}
 		
 	@PostMapping("/register")
 	public void addUser(

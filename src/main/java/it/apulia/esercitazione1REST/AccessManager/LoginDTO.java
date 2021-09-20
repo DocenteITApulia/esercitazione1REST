@@ -1,4 +1,4 @@
-package it.apulia.esercitazione1REST;
+package it.apulia.esercitazione1REST.AccessManager;
 
 import lombok.Data;
 
